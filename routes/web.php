@@ -12,9 +12,6 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 Route::group(['prefix' => '/', 'namespace' => 'Test'], function () {
@@ -22,6 +19,23 @@ Route::group(['prefix' => '/', 'namespace' => 'Test'], function () {
 
 
     Route::post('trans', 'TransController@postContent')->name('post.content');
+
+
+    Route::get('/', function () {
+        echo "<h2>This is Home page</h2>";
+    });
+
+    Route::get('about', function () {
+        echo "<h2>This is About page</h2>";
+    });
+
+    Route::get('contact', function () {
+        echo "<h2>This is Contact page</h2>";
+    });
+
+    Route::get('user/{name}', function ($name) {
+        echo "<h2>User name is $name</h2>";
+    });
 });
 
 
