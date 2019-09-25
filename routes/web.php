@@ -11,6 +11,19 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix' => '/', 'namespace' => 'Test'], function () {
+    Route::get('trans', 'TransController@getContent');
+
+
+    Route::post('trans', 'TransController@postContent')->name('post.content');
+});
+
+
+
+
